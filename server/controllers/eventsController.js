@@ -5,7 +5,8 @@ exports.getAllEvents = (req, res) => {
   knex.select().from('events')
     .then(response => (
       res.status(200).json(response)
-    ));
+    ))
+    .catch(err => console.log('Error creating event: ', err));
 };
 
 exports.getEvent = (req, res) => {
@@ -13,7 +14,8 @@ exports.getEvent = (req, res) => {
   knex('events').where('id', id)
     .then(response => (
       res.status(200).json(response)
-    ));
+    ))
+    .catch(err => console.log('Error creating event: ', err));
 };
 
 exports.editEvent = (req, res) => {
@@ -21,7 +23,8 @@ exports.editEvent = (req, res) => {
   knex('events').where('id', id).update(req.body)
     .then(response => (
       res.status(200).json(response)
-    ));
+    ))
+    .catch(err => console.log('Error creating event: ', err));
 };
 
 exports.deleteEvent = (req, res) => {
@@ -29,7 +32,8 @@ exports.deleteEvent = (req, res) => {
   knex('events').where('id', id).del()
     .then(response => (
       res.status(200).json(response)
-    ));
+    ))
+    .catch(err => console.log('Error creating event: ', err));
 };
 
 exports.createEvent = (req, res) => {
