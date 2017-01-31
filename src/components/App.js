@@ -6,7 +6,7 @@ import { getEvents } from '../actions/eventsActions';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getEvents()
+    this.props.getEvents();
   }
 
   render() {
