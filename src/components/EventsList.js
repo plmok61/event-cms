@@ -1,14 +1,30 @@
-import React from 'react';
-import { getEvents } from '../actions/eventsActions';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getEvents } from '../actions/eventsActions';
+import EventsListItem from './EventsListItem';
 
-const EventsList = () => {
-  return (
-    <div>
-      hello world
-    </div>
-  );
-};
+class EventsList extends Component {
+  componentDidMount() {
+    this.props.getEvents();
+  }
+
+  render() {
+    const { events } = this.props;
+    return (
+      <div>
+        {
+          events.length
+          ?
+          events.map((event, key) => (
+            <EventsListItem event={event} key={key} />
+          ))
+          :
+          null
+        }
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (store) => {
   return {

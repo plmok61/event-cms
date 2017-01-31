@@ -4,7 +4,9 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import App from './components/App';
+import Home from './components/Home';
 import EventsList from './components/EventsList';
+import Event from './components/Event';
 import store from './store';
 import './index.css';
 
@@ -14,7 +16,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={EventsList} />
+        <IndexRoute component={Home} />
+        <Route path="/events" component={EventsList} />
+        <Route path="/events/:id" component={Event} />
       </Route>
     </Router>
   </Provider>,
