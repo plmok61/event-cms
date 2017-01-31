@@ -3,7 +3,7 @@ const initialState = {
   fetching: false,
 };
 
-export default function matchupReducer(state = initialState, action) {
+export default function eventsReducer(state = initialState, action) {
   switch (action.type) {
     case 'FETCHING_EVENTS':
       return { ...state, fetching: true };
