@@ -6,7 +6,7 @@ export function getEvents() {
 
     axios.get('http://localhost:8081/events')
       .then(response => (
-        console.log('got events: ', response)
+        dispatch({ type: 'FETCHED_EVENTS', payload: response.data })
       ))
       .catch(err => console.log('Error getting events: ', err));
   };
