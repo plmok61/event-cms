@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const eventsRouter = require('./routes/eventsRouter');
+const morgan = require('morgan');
 const db = require('./db');
 
 const port = 8081;
@@ -18,7 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../build')));
