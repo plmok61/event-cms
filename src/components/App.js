@@ -18,14 +18,11 @@ const App = ({ children }) => {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to="/">
-              <NavItem eventKey={1}>Home</NavItem>
-            </LinkContainer>
             <LinkContainer to="/create">
-              <NavItem eventKey={2}>Create</NavItem>
+              <NavItem eventKey={1}>Create</NavItem>
             </LinkContainer>
             <LinkContainer to="/events">
-              <NavItem eventKey={3}>All Events</NavItem>
+              <NavItem eventKey={2}>All Events</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
