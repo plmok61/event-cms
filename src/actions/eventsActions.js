@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export function getEvents() {
   return (dispatch) => {
@@ -51,7 +52,7 @@ export function deleteEvent(id) {
   return (dispatch) => {
     axios.delete(`http://localhost:8081/events/${id}`)
       .then(response => (
-        console.log(response)
+        browserHistory.push('/events')
       ))
       .catch(err => console.log(`Error deleting event ${id}: `, err));
   };
