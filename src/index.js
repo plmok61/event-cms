@@ -9,7 +9,7 @@ import EventsList from './components/EventsList';
 import Event from './components/Event';
 import CreateEvent from './components/CreateEvent';
 import store from './store';
-import './index.css';
+import './assets/styles/index.css';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
