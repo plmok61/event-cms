@@ -33,9 +33,10 @@ export function submitEdit(values, id) {
   return (dispatch) => {
     dispatch({ type: 'EDIT_START' });
     axios.put(`http://localhost:8081/events/${id}`, values)
-      .then(response => (
-        console.log(response)
-      ))
+      .then(response => {
+        const updatedEvent = JSON.parse(response.config.data)
+        dispatch({ type: 'EDIT_COMPLETE', payload: updatedEvent })
+      })
       .catch(err => console.log(`Error editing event ${id}: `, err));
   };
 }
@@ -43,5 +44,15 @@ export function submitEdit(values, id) {
 export function cancelEdit() {
   return {
     type: 'CANCEL_EDIT',
+  };
+}
+
+export function deleteEvent(id) {
+  return (dispatch) => {
+    axios.delete(`http://localhost:8081/events/${id}`)
+      .then(response => (
+        console.log(response)
+      ))
+      .catch(err => console.log(`Error deleting event ${id}: `, err));
   };
 }

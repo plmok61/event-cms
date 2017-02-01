@@ -21,6 +21,10 @@ export default function eventsReducer(state = initialState, action) {
       return { ...state, editing: true };
     case 'CANCEL_EDIT':
       return { ...state, editing: false };
+    case 'EDIT_COMPLETE':
+      return { ...state, editing: false, currentEvent: action.payload };
+    case 'DELETE_EVENT':
+      return { ...state, currentEvent: false };
     default:
       return state;
   }

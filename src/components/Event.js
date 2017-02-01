@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
-import { getEvent, editEvent, submitEdit, cancelEdit } from '../actions/eventsActions';
+import { getEvent, editEvent, submitEdit, cancelEdit, deleteEvent } from '../actions/eventsActions';
 import EditEventForm from './EditEventForm';
 
 class Event extends Component {
@@ -49,6 +49,7 @@ class Event extends Component {
               <h4>Ends {endDate}</h4>
               <p>{event.description}</p>
               <Button onClick={this.props.editEvent}>Edit</Button>
+              <Button onClick={() => this.props.deleteEvent(this.props.params.id)}>Delete</Button>
             </Col>
             <Col xsHidden={true} smHidden={true} md={3} lg={3}>right</Col>
           </Row>
@@ -92,6 +93,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     cancelEdit() {
       dispatch(cancelEdit());
+    },
+    deleteEvent(id) {
+      dispatch(deleteEvent(id));
     },
   };
 };
