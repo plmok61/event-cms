@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Button } from 'react-bootstrap';
 import DateField from './DateField';
 
-class CreateEventForm extends Component {
+class EditEventForm extends Component {
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -46,13 +51,14 @@ class CreateEventForm extends Component {
           </div>
           <button type="submit">Submit</button>
         </form>
+        <Button onClick={this.props.cancelEdit}>Cancel</Button>
       </div>
     );
   }
 }
 
-CreateEventForm = reduxForm({
-  form: 'createEvent',
-})(CreateEventForm);
+EditEventForm = reduxForm({
+  form: 'editEvent',
+},)(EditEventForm);
 
-export default CreateEventForm;
+export default EditEventForm;
