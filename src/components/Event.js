@@ -16,7 +16,7 @@ class Event extends Component {
   }
 
   handleSubmit(values) {
-    this.props.submitEdit(values, this.props.params.id)
+    this.props.submitEdit(values, this.props.params.id);
   }
 
   render() {

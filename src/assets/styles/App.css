@@ -23,7 +23,20 @@
   to { transform: rotate(360deg); }
 }
 
+/* Events List*/
+.event-list-item {
+  background-color: #d7d7d7;
+  border: #000 1px solid;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 10px;
+  padding: 15px;
+  align-items: left;
+  text-align: left;
+}
+
 /* Create Event Form */
 .form-container {
   align-items: left;
 }
+
