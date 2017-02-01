@@ -87,8 +87,8 @@ const mapDispatchToProps = (dispatch) => {
     editEvent() {
       dispatch(editEvent());
     },
-    submitEdit(id) {
-      dispatch(submitEdit(id));
+    submitEdit(values, id) {
+      dispatch(submitEdit(values, id));
     },
     cancelEdit() {
       dispatch(cancelEdit());

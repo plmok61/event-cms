@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import DateField from './DateField'
+import DateField from './DateField';
 
 class CreateEventForm extends Component {
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit } = this.props;
     return (
       <div className="form-container">
         <form onSubmit={handleSubmit}>

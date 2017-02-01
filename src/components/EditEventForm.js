@@ -10,7 +10,6 @@ class EditEventForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    const { category, title, description, start_date, end_date, feature_flag } = this.props.event;
     return (
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -58,28 +57,8 @@ class EditEventForm extends Component {
   }
 }
 
-// const mapStateToProps = (state, ownProps) => ({
-//   initialValues: {
-//     title: ownProps.event.title,
-//   },
-// });
-
 EditEventForm = reduxForm({
   form: 'editEvent',
 },)(EditEventForm);
-
-// EditEventForm = connect(
-//   store => {
-//     return {
-//       initialValues: store.event.current,
-//     }
-//   },
-// )(EditEventForm);
-
-// const mapStateToProps = (store) => {
-//   return {
-//     events: store.events,
-//   };
-// };
 
 export default EditEventForm;

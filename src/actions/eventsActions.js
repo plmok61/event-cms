@@ -29,10 +29,10 @@ export function editEvent() {
   };
 }
 
-export function SubmitEdit(id) {
+export function submitEdit(values, id) {
   return (dispatch) => {
     dispatch({ type: 'EDIT_START' });
-    axios.put(`http://localhost:8081/events/${id}`)
+    axios.put(`http://localhost:8081/events/${id}`, values)
       .then(response => (
         console.log(response)
       ))

@@ -20,6 +20,8 @@ exports.getEvent = (req, res) => {
 
 exports.editEvent = (req, res) => {
   const id = req.params.id;
+  console.log('got id: ', id);
+  console.log('got body: ', req.body);
   knex('events').where('id', id).update(req.body)
     .then(response => (
       res.status(200).json(response)
