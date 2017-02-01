@@ -37,6 +37,7 @@ exports.deleteEvent = (req, res) => {
 };
 
 exports.createEvent = (req, res) => {
+  console.log('create: ', req.body);
   knex('events').insert(req.body)
     .then(response => (
       res.status(201).json(response)
