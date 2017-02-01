@@ -22,3 +22,26 @@ export function getEvent(id) {
       .catch(err => console.log(`Error getting event ${id}: `, err));
   };
 }
+
+export function editEvent() {
+  return {
+    type: 'EDIT_EVENT',
+  };
+}
+
+export function SubmitEdit(id) {
+  return (dispatch) => {
+    dispatch({ type: 'EDIT_START' });
+    axios.put(`http://localhost:8081/events/${id}`)
+      .then(response => (
+        console.log(response)
+      ))
+      .catch(err => console.log(`Error editing event ${id}: `, err));
+  };
+}
+
+export function cancelEdit() {
+  return {
+    type: 'CANCEL_EDIT',
+  };
+}
