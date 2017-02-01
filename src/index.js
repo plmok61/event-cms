@@ -7,6 +7,7 @@ import App from './components/App';
 import Home from './components/Home';
 import EventsList from './components/EventsList';
 import Event from './components/Event';
+import CreateEvent from './components/CreateEvent';
 import store from './store';
 import './index.css';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path="/events" component={EventsList} />
         <Route path="/events/:id" component={Event} />
+        <Route path="/create" component={CreateEvent} />
       </Route>
     </Router>
   </Provider>,
