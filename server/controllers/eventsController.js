@@ -20,8 +20,6 @@ exports.getEvent = (req, res) => {
 
 exports.editEvent = (req, res) => {
   const id = req.params.id;
-  console.log('got id: ', id);
-  console.log('got body: ', req.body);
   knex('events').where('id', id).update(req.body)
     .then(response => (
       res.status(200).json(response)
@@ -40,9 +38,13 @@ exports.deleteEvent = (req, res) => {
 
 exports.createEvent = (req, res) => {
   console.log('create: ', req.body);
-  knex('events').insert(req.body)
-    .then(response => (
-      res.status(201).json(response)
-    ))
+  knex('events').returning('id').insert(req.body)
+    .then((id) => {
+      knex('events').where('id', id[0])
+        .then(response => (
+          res.status(201).json(response)
+        ))
+        .catch(err => console.log('Error creating event: ', err));
+    })
     .catch(err => console.log('Error creating event: ', err));
 };

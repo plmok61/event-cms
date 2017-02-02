@@ -57,13 +57,13 @@ class Event extends Component {
       );
     } else if (event && editing) {
       return (
-        <EditEventForm 
+        <EditEventForm
           event={event}
           onSubmit={this.handleSubmit}
           cancelEdit={this.props.cancelEdit}
           {...initialValues}
         />
-      )
+      );
     } else {
       return (
         <div>
@@ -74,30 +74,34 @@ class Event extends Component {
   }
 }
 
-const mapStateToProps = (store) => {
-  return {
-    events: store.events,
-  };
-};
+// Event.propTypes = {
+//   getEvent: React.ProptTypes.func.isRequired,
+//   editEvent: React.ProptTypes.func.isRequired,
+//   submitEdit: React.ProptTypes.func.isRequired,
+//   cancelEdit: React.ProptTypes.func.isRequired,
+//   deleteEvent: React.ProptTypes.func.isRequired,
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getEvent(id) {
-      dispatch(getEvent(id));
-    },
-    editEvent() {
-      dispatch(editEvent());
-    },
-    submitEdit(values, id) {
-      dispatch(submitEdit(values, id));
-    },
-    cancelEdit() {
-      dispatch(cancelEdit());
-    },
-    deleteEvent(id) {
-      dispatch(deleteEvent(id));
-    },
-  };
-};
+const mapStateToProps = store => ({
+  events: store.events,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getEvent(id) {
+    dispatch(getEvent(id));
+  },
+  editEvent() {
+    dispatch(editEvent());
+  },
+  submitEdit(values, id) {
+    dispatch(submitEdit(values, id));
+  },
+  cancelEdit() {
+    dispatch(cancelEdit());
+  },
+  deleteEvent(id) {
+    dispatch(deleteEvent(id));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Event);

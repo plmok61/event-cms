@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import { Col } from 'react-bootstrap';
 
@@ -17,7 +17,7 @@ const EventsListItem = ({ event }) => {
 };
 
 EventsListItem.propTypes = {
-  event: PropTypes.object.isRequired,
+  event: React.PropTypes.object.isRequired,
 };
 
 export default EventsListItem;

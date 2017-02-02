@@ -51,6 +51,10 @@ class CreateEventForm extends Component {
   }
 }
 
+CreateEventForm.propTypes = {
+  handleSubmit: React.PropTypes.func.isRequired,
+};
+
 CreateEventForm = reduxForm({
   form: 'createEvent',
 })(CreateEventForm);
