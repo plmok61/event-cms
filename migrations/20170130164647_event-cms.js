@@ -7,7 +7,7 @@ exports.up = (knex, Promise) => {
       table.dateTime('start_date');
       table.dateTime('end_date');
       table.string('category');
-      table.string('description');
+      table.text('description');
       table.boolean('feature_flag');
       table.timestamps();
     }),
