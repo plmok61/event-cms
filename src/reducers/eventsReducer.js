@@ -29,6 +29,8 @@ export default function eventsReducer(state = initialState, action) {
       return { ...state, editing: false, currentEvent: action.payload };
     case 'DELETE_EVENT':
       return { ...state, currentEvent: false };
+    case 'EVENT_ERROR':
+      return { ...state, fetching: false };
     default:
       return state;
   }

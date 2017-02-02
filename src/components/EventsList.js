@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { getEvents } from '../actions/eventsActions';
 import EventsListItem from './EventsListItem';
+import Loading from './Loading';
 
 class EventsList extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class EventsList extends Component {
                   <EventsListItem event={event} key={event.id} />
                 ))
                 :
-                null
+                 <Loading tryAgain={this.props.getEvents} />
               }
             </div>
           </Col>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 import { getEvent, editEvent, submitEdit, cancelEdit, deleteEvent } from '../actions/eventsActions';
 import EditEventForm from './EditEventForm';
+import Loading from './Loading';
 
 class Event extends Component {
   constructor(props) {
@@ -46,9 +47,10 @@ class Event extends Component {
               <h2>
                 {event.title}
               </h2>
+              <p>{event.description}</p>
+              <p>{event.category}</p>
               <h4>Starts {startDate}</h4>
               <h4>Ends {endDate}</h4>
-              <p>{event.description}</p>
               <Button onClick={this.props.editEvent}>Edit</Button>
               <Button onClick={() => this.props.deleteEvent(this.props.params.id)}>Delete</Button>
             </Col>
@@ -67,9 +69,7 @@ class Event extends Component {
       );
     } else {
       return (
-        <div>
-          loading
-        </div>
+        <Loading tryAgain={() => this.props.getEvent(this.props.params.id)} />
       );
     }
   }

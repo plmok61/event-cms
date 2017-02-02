@@ -9,7 +9,10 @@ export function getEvents() {
       .then(response => (
         dispatch({ type: 'FETCHED_EVENTS', payload: response.data })
       ))
-      .catch(err => console.log('Error getting events: ', err));
+      .catch((err) => {
+        console.log('Error getting events: ', err);
+        dispatch({ type: 'EVENT_ERROR' });
+      });
   };
 }
 
