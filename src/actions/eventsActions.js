@@ -30,7 +30,8 @@ export function getEvent(id) {
 export function submitForm(inputs) {
   return (dispatch) => {
     dispatch({ type: 'SUBMIT_START' });
-    axios.post('http://localhost:8081/events', inputs)
+    const event = { ...inputs, created_at: new Date() };
+    axios.post('http://localhost:8081/events', event)
       .then((response) => {
         const newEvent = response.data[0];
         dispatch({ type: 'SUBMIT_END', payload: newEvent });
@@ -49,7 +50,8 @@ export function editEvent() {
 export function submitEdit(values, id) {
   return (dispatch) => {
     dispatch({ type: 'EDIT_START' });
-    axios.put(`http://localhost:8081/events/${id}`, values)
+    const event = { ...values, updated_at: new Date() };
+    axios.put(`http://localhost:8081/events/${id}`, event)
       .then((response) => {
         const updatedEvent = JSON.parse(response.config.data);
         dispatch({ type: 'EDIT_COMPLETE', payload: updatedEvent });
