@@ -53,10 +53,10 @@ class EditEventForm extends Component {
   }
 }
 
-// EditEventForm.propTypes = {
-//   handleSubmit: React.PropTypes.func.isRequired,
-//   cancelEdit: React.PropTypes.func.isRequired,
-// };
+EditEventForm.propTypes = {
+  handleSubmit: React.PropTypes.func.isRequired,
+  cancelEdit: React.PropTypes.func.isRequired,
+};
 
 EditEventForm = reduxForm({
   form: 'editEvent',

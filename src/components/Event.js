@@ -12,6 +12,7 @@ class Event extends Component {
 
   componentDidMount() {
     const { id } = this.props.params;
+    console.log('id is a ', typeof id)
     this.props.getEvent(id);
   }
 
@@ -74,13 +75,13 @@ class Event extends Component {
   }
 }
 
-// Event.propTypes = {
-//   getEvent: React.ProptTypes.func.isRequired,
-//   editEvent: React.ProptTypes.func.isRequired,
-//   submitEdit: React.ProptTypes.func.isRequired,
-//   cancelEdit: React.ProptTypes.func.isRequired,
-//   deleteEvent: React.ProptTypes.func.isRequired,
-// };
+Event.propTypes = {
+  getEvent: React.PropTypes.func.isRequired,
+  editEvent: React.PropTypes.func.isRequired,
+  submitEdit: React.PropTypes.func.isRequired,
+  cancelEdit: React.PropTypes.func.isRequired,
+  deleteEvent: React.PropTypes.func.isRequired,
+};
 
 const mapStateToProps = store => ({
   events: store.events,

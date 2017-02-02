@@ -33,10 +33,10 @@ class EventsList extends Component {
   }
 }
 
-// EventsList.propTypes = {
-//   events: React.Proptypes.array,
-//   getEvents: React.Proptypes.func.isRequired,
-// };
+EventsList.propTypes = {
+  getEvents: React.PropTypes.func.isRequired,
+  events: React.PropTypes.array,
+};
 
 const mapStateToProps = store => ({
   events: store.events.events,
