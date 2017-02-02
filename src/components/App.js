@@ -4,33 +4,35 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import '../assets/styles/App.css';
 
-const App = ({ children }) => {
-  return (
-    <div className="App">
-      <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <LinkContainer to="/">
-              <Link to="/">Event CMS</Link>
-            </LinkContainer>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            <LinkContainer to="/create">
-              <NavItem eventKey={1}>Create</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/events">
-              <NavItem eventKey={2}>All Events</NavItem>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+const App = ({ children }) => (
+  <div className="App">
+    <Navbar inverse collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <LinkContainer to="/">
+            <Link to="/">Event CMS</Link>
+          </LinkContainer>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <LinkContainer to="/create">
+            <NavItem eventKey={1}>Create</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/events">
+            <NavItem eventKey={2}>All Events</NavItem>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
 
-      <div>{ children }</div>
-    </div>
-  );
+    <div>{ children }</div>
+  </div>
+);
+
+App.propTypes = {
+  children: React.PropTypes.element.isRequired,
 };
 
 export default App;

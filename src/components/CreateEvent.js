@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { submitForm } from '../actions/createEventActions';
+import { submitForm } from '../actions/eventsActions';
 import CreateEventForm from './CreateEventForm';
 
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('form props: ', this.props);
   }
 
   handleSubmit(values) {
@@ -26,18 +22,18 @@ class CreateEvent extends Component {
   }
 }
 
-const mapStateToProps = (store) => {
-  return {
-    form: store.form,
-  };
+CreateEvent.propTypes = {
+  submitForm: React.PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    submitForm(values) {
-      dispatch(submitForm(values));
-    },
-  };
-};
+const mapStateToProps = store => ({
+  form: store.form,
+});
+
+const mapDispatchToProps = dispatch => ({
+  submitForm(values) {
+    dispatch(submitForm(values));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateEvent);

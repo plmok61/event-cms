@@ -4,10 +4,6 @@ import { Button } from 'react-bootstrap';
 import DateField from './DateField';
 
 class EditEventForm extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -57,8 +53,13 @@ class EditEventForm extends Component {
   }
 }
 
+EditEventForm.propTypes = {
+  handleSubmit: React.PropTypes.func.isRequired,
+  cancelEdit: React.PropTypes.func.isRequired,
+};
+
 EditEventForm = reduxForm({
   form: 'editEvent',
-},)(EditEventForm);
+})(EditEventForm);
 
 export default EditEventForm;

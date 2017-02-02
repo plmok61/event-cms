@@ -24,6 +24,19 @@ export function getEvent(id) {
   };
 }
 
+export function submitForm(inputs) {
+  return (dispatch) => {
+    dispatch({ type: 'SUBMIT_START' });
+    axios.post('http://localhost:8081/events', inputs)
+      .then((response) => {
+        const newEvent = response.data[0];
+        dispatch({ type: 'SUBMIT_END', payload: newEvent });
+        browserHistory.push(`/events/${newEvent.id}`);
+      })
+      .catch(err => console.log('Error submitting: ', err));
+  };
+}
+
 export function editEvent() {
   return {
     type: 'EDIT_EVENT',
@@ -34,9 +47,9 @@ export function submitEdit(values, id) {
   return (dispatch) => {
     dispatch({ type: 'EDIT_START' });
     axios.put(`http://localhost:8081/events/${id}`, values)
-      .then(response => {
-        const updatedEvent = JSON.parse(response.config.data)
-        dispatch({ type: 'EDIT_COMPLETE', payload: updatedEvent })
+      .then((response) => {
+        const updatedEvent = JSON.parse(response.config.data);
+        dispatch({ type: 'EDIT_COMPLETE', payload: updatedEvent });
       })
       .catch(err => console.log(`Error editing event ${id}: `, err));
   };

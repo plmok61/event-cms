@@ -19,8 +19,8 @@ class EventsList extends Component {
               {
                 events.length
                 ?
-                events.map((event, key) => (
-                  <EventsListItem event={event} key={key} />
+                events.map(event => (
+                  <EventsListItem event={event} key={event.id} />
                 ))
                 :
                 null
@@ -33,18 +33,19 @@ class EventsList extends Component {
   }
 }
 
-const mapStateToProps = (store) => {
-  return {
-    events: store.events.events,
-  };
+EventsList.propTypes = {
+  getEvents: React.PropTypes.func.isRequired,
+  events: React.PropTypes.array,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getEvents() {
-      dispatch(getEvents());
-    },
-  };
-};
+const mapStateToProps = store => ({
+  events: store.events.events,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getEvents() {
+    dispatch(getEvents());
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsList);

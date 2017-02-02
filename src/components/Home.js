@@ -6,7 +6,7 @@ const Home = () => (
   <div>
     <Jumbotron>
       <h1>Welcome!</h1>
-      <p>Do you like events? Did you answer "YES!"? Then we have a CRUD app for you!</p>
+      <p>Do you like events? Did you answer { '"YES!"' }? Then we have a CRUD app for you!</p>
       <LinkContainer to="/events">
         <Button bsStyle="info">View All Events</Button>
       </LinkContainer>

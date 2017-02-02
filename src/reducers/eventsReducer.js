@@ -17,6 +17,10 @@ export default function eventsReducer(state = initialState, action) {
       return { ...state, fetching: true };
     case 'FETCHED_EVENT':
       return { ...state, currentEvent: action.payload, fetching: false };
+    case 'SUBMIT_START':
+      return { ...state, fetching: true };
+    case 'SUBMIT_END':
+      return { ...state, currentEvent: action.payload, fetching: false };
     case 'EDIT_EVENT':
       return { ...state, editing: true };
     case 'CANCEL_EDIT':
