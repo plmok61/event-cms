@@ -6,7 +6,7 @@ const EventsListItem = ({ event }) => (
   <Col xs={12}>
     <div className="event-list-item">
       <div className="title-date">
-        <h3>Title: { event.title }</h3>
+        <h3>{ event.title }</h3>
       </div>
       <div className="event-about">
         { event.feature_flag ? <h3>Featured Event!</h3> : null }

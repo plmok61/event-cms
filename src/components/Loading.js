@@ -3,9 +3,11 @@ import { Button } from 'react-bootstrap';
 import loadingGif from '../assets/loading-gear.gif';
 
 const Loading = ({ tryAgain }) => (
-  <div>
+  <div className="loading-container">
     <h3>What an eventful day!</h3>
-    <img src={loadingGif} alt="loading-gear" />
+    <div>
+      <img src={loadingGif} alt="loading-gear" />
+    </div>
     <Button onClick={tryAgain}>Try Again</Button>
   </div>
 );

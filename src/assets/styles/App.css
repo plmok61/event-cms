@@ -16,7 +16,7 @@
 
 
 /* Event View */
-.eventContainer {
+.event-container {
   margin: 15px; 
   text-align: left;
   background-color: white;
@@ -38,5 +38,11 @@
 /* Create Event Form */
 .form-container {
   align-items: left;
+  background-color: white;
+  padding: 20px;
 }
 
+/* Loading */
+.loading-container {
+  padding: 15px;
+}

@@ -40,7 +40,7 @@ class Event extends Component {
       const startDate = new Date(event.start_date).toDateString();
       const endDate = new Date(event.end_date).toDateString();
       return (
-        <div className="eventContainer">
+        <div className="event-container">
           <div className="title-date">
             <h1>
               {event.title}
