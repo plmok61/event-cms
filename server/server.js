@@ -26,9 +26,5 @@ app.use(express.static(path.resolve(__dirname, '../build')));
 
 app.use('/events', eventsRouter);
 
-app.get('/test', function (req, res) {
-  res.send('Testing 1, 2, 3...');
-});
-
 const server = http.listen(port);
 console.log(`Server is running on port: ${port}`)

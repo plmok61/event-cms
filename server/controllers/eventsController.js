@@ -1,6 +1,6 @@
-// const knex = require('knex')({ client: 'pg' });
 const knex = require('../db.js');
 
+// Get events for listview
 exports.getAllEvents = (req, res) => {
   knex.select().from('events')
     .then(response => (
@@ -9,6 +9,7 @@ exports.getAllEvents = (req, res) => {
     .catch(err => console.log('Error creating event: ', err));
 };
 
+// Get a single event
 exports.getEvent = (req, res) => {
   const id = req.params.id;
   knex('events').where('id', id)
@@ -18,6 +19,7 @@ exports.getEvent = (req, res) => {
     .catch(err => console.log('Error creating event: ', err));
 };
 
+// Edit an event
 exports.editEvent = (req, res) => {
   const id = req.params.id;
   knex('events').where('id', id).update(req.body)
@@ -27,6 +29,7 @@ exports.editEvent = (req, res) => {
     .catch(err => console.log('Error creating event: ', err));
 };
 
+// Delete an event
 exports.deleteEvent = (req, res) => {
   const id = req.params.id;
   knex('events').where('id', id).del()
@@ -36,6 +39,7 @@ exports.deleteEvent = (req, res) => {
     .catch(err => console.log('Error creating event: ', err));
 };
 
+// Create an event
 exports.createEvent = (req, res) => {
   console.log('create: ', req.body);
   knex('events').returning('id').insert(req.body)
