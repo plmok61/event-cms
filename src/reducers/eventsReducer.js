@@ -11,8 +11,6 @@ export default function eventsReducer(state = initialState, action) {
       return { ...state, fetching: true };
     case 'FETCHED_EVENTS':
       return { ...state, events: action.payload, fetching: false };
-    case 'CANCEL_EVENTS':
-      return { ...state, fetching: false };
     case 'FETCHING_EVENT':
       return { ...state, fetching: true };
     case 'FETCHED_EVENT':
@@ -23,12 +21,16 @@ export default function eventsReducer(state = initialState, action) {
       return { ...state, currentEvent: action.payload, fetching: false };
     case 'EDIT_EVENT':
       return { ...state, editing: true };
+    case 'EDIT_START':
+      return { ...state, fetching: true };
     case 'CANCEL_EDIT':
       return { ...state, editing: false };
     case 'EDIT_COMPLETE':
-      return { ...state, editing: false, currentEvent: action.payload };
-    case 'DELETE_EVENT':
-      return { ...state, currentEvent: false };
+      return { ...state, editing: false, currentEvent: action.payload, fetching: false };
+    case 'DELETE_START':
+      return { ...state, fetching: true };
+    case 'DELETE_COMPLETE':
+      return { ...state, currentEvent: false, fetching: false };
     case 'EVENT_ERROR':
       return { ...state, fetching: false };
     default:
