@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Grid, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import '../assets/styles/App.css';
 
@@ -26,8 +26,13 @@ const App = ({ children }) => (
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-
-    <div>{ children }</div>
+    <Grid>
+      <Row>
+        <Col>
+          <div>{ children }</div>
+        </Col>
+      </Row>
+    </Grid>
   </div>
 );
 

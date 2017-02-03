@@ -2,16 +2,37 @@
   text-align: center;
 }
 
+.bold-text {
+  font-weight: bold;
+}
+
 /* Events List*/
 .event-list-item {
-  background-color: #d7d7d7;
-  border: #000 1px solid;
-  border-radius: 5px;
-  max-width: 600px;
+  background-color: white;
   margin: 10px;
-  padding: 15px;
   align-items: left;
   text-align: left;
+}
+
+
+/* Event View */
+.eventContainer {
+  margin: 15px; 
+  text-align: left;
+  background-color: white;
+}
+
+.event-about {
+  padding: 5px;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #333;
+}
+
+.title-date{
+  color: white;
+  background-color: #333;
+  padding: 15px;
 }
 
 /* Create Event Form */
