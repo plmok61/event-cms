@@ -28,4 +28,7 @@ Start up the server on port 8081. The server uses `nodemon` which will automatic
 npm run server
 ```` 
 
+Now go to [http://localhost:3000/create](http://localhost:3000/create) and create your first event!
+
+### Note
 This app also uses the `redux-logger` middleware which console logs changes to state in Chome's devtools. If you find these logs annoying you can remove the logger from `/src/store.js`.
