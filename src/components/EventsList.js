@@ -35,7 +35,7 @@ EventsList.propTypes = {
     category: React.PropTypes.string,
     start_date: React.PropTypes.string,
     end_date: React.PropTypes.string,
-    feature_flag: React.PropTypes.string,
+    feature_flag: React.PropTypes.bool,
   })).isRequired,
 };
 

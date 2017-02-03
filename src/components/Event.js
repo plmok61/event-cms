@@ -46,6 +46,7 @@ class Event extends Component {
             </h1>
             <p>Starts: {startDate}</p>
             <p>Ends: {endDate}</p>
+            { event.feature_flag ? <h3>Featured Event!</h3> : null }
           </div>
           <div className="event-about">
             <p><span className="bold-text">About this event: </span></p>
@@ -91,7 +92,7 @@ Event.propTypes = {
       category: React.PropTypes.string,
       start_date: React.PropTypes.string,
       end_date: React.PropTypes.string,
-      feature_flag: React.PropTypes.string,
+      feature_flag: React.PropTypes.bool,
     })),
     fetching: React.PropTypes.bool,
     editing: React.PropTypes.bool,
@@ -101,7 +102,7 @@ Event.propTypes = {
       category: React.PropTypes.string,
       start_date: React.PropTypes.string,
       end_date: React.PropTypes.string,
-      feature_flag: React.PropTypes.string,
+      feature_flag: React.PropTypes.bool,
     }),
   }).isRequired,
 };

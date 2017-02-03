@@ -9,9 +9,7 @@ const App = ({ children }) => (
     <Navbar inverse collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <LinkContainer to="/">
-            <Link to="/">Event CMS</Link>
-          </LinkContainer>
+          <Link to="/">Event CMS</Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
