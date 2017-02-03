@@ -31,7 +31,7 @@ exports.deleteEvent = (req, res) => {
   const id = req.params.id;
   knex('events').where('id', id).del()
     .then(response => (
-      res.status(200).json(response)
+      res.status(204).json(response)
     ))
     .catch(err => console.log('Error creating event: ', err));
 };
