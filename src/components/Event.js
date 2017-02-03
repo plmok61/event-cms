@@ -12,7 +12,6 @@ class Event extends Component {
   }
 
   componentDidMount() {
-    console.log('evetns: ', this.props.events)
     const { id } = this.props.params;
     this.props.getEvent(id);
   }
@@ -84,6 +83,26 @@ Event.propTypes = {
   deleteEvent: React.PropTypes.func.isRequired,
   params: React.PropTypes.shape({
     id: React.PropTypes.string.isRequired,
+  }).isRequired,
+  events: React.PropTypes.shape({
+    events: React.PropTypes.arrayOf(React.PropTypes.shape({
+      title: React.PropTypes.string,
+      description: React.PropTypes.string,
+      category: React.PropTypes.string,
+      start_date: React.PropTypes.string,
+      end_date: React.PropTypes.string,
+      feature_flag: React.PropTypes.string,
+    })),
+    fetching: React.PropTypes.bool,
+    editing: React.PropTypes.bool,
+    currentEvent: React.PropTypes.shape({
+      title: React.PropTypes.string,
+      description: React.PropTypes.string,
+      category: React.PropTypes.string,
+      start_date: React.PropTypes.string,
+      end_date: React.PropTypes.string,
+      feature_flag: React.PropTypes.string,
+    }),
   }).isRequired,
 };
 
