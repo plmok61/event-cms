@@ -2,19 +2,20 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Col } from 'react-bootstrap';
 
-const EventsListItem = ({ event }) => {
-  const featured = event.feature_flag ? 'Featured Event!' : 'Not cool enough...';
-  return (
-    <Col xs={12}>
-      <div className="event-list-item">
-        <h3>ID: { event.id }</h3>
-        <h3>Title: { event.title }</h3>
-        <h3>Featured: { featured }</h3>
+const EventsListItem = ({ event }) => (
+  <Col xs={12}>
+    <div className="event-list-item">
+      <div className="title-date">
+        <h3>{ event.title }</h3>
+      </div>
+      <div className="event-about">
+        { event.feature_flag ? <h3>Featured Event!</h3> : null }
+        <p>ID: { event.id }</p>
         <Link to={`events/${event.id}`}>View</Link>
       </div>
-    </Col>
-  );
-};
+    </div>
+  </Col>
+);
 
 EventsListItem.propTypes = {
   event: React.PropTypes.object.isRequired,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Button, ButtonGroup } from 'react-bootstrap';
 import { getEvent, editEvent, submitEdit, cancelEdit, deleteEvent } from '../actions/eventsActions';
 import EditEventForm from './EditEventForm';
 import Loading from './Loading';
@@ -40,23 +40,24 @@ class Event extends Component {
       const startDate = new Date(event.start_date).toDateString();
       const endDate = new Date(event.end_date).toDateString();
       return (
-        <Grid>
-          <Row>
-            <Col xsHidden={true} smHidden={true} md={3} lg={3}>left</Col>
-            <Col xs={12} sm={12} md={6} lg={6}>
-              <h2>
-                {event.title}
-              </h2>
-              <p>{event.description}</p>
-              <p>{event.category}</p>
-              <h4>Starts {startDate}</h4>
-              <h4>Ends {endDate}</h4>
-              <Button onClick={this.props.editEvent}>Edit</Button>
-              <Button onClick={() => this.props.deleteEvent(this.props.params.id)}>Delete</Button>
-            </Col>
-            <Col xsHidden={true} smHidden={true} md={3} lg={3}>right</Col>
-          </Row>
-        </Grid>
+        <div className="event-container">
+          <div className="title-date">
+            <h1>
+              {event.title}
+            </h1>
+            <p>Starts: {startDate}</p>
+            <p>Ends: {endDate}</p>
+          </div>
+          <div className="event-about">
+            <p><span className="bold-text">About this event: </span></p>
+            <p>{event.description}</p>
+            <h4>Category: {event.category}</h4>
+            <ButtonGroup>
+              <Button bsStyle="warning" onClick={this.props.editEvent}>Edit</Button>
+              <Button bsStyle="danger" onClick={() => this.props.deleteEvent(this.props.params.id)}>Delete</Button>
+            </ButtonGroup>
+          </div>
+        </div>
       );
     } else if (event && editing) {
       return (

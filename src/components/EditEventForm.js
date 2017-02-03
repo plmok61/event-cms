@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Button } from 'react-bootstrap';
+import { Button, ButtonGroup } from 'react-bootstrap';
 import DateField from './DateField';
 
 class EditEventForm extends Component {
@@ -45,9 +45,11 @@ class EditEventForm extends Component {
           <div>
             <Field type="checkbox" name="feature_flag" component="input" />
           </div>
-          <button type="submit">Submit</button>
+          <ButtonGroup>
+            <Button type="submit">Submit</Button>
+            <Button onClick={this.props.cancelEdit}>Cancel</Button>
+          </ButtonGroup>
         </form>
-        <Button onClick={this.props.cancelEdit}>Cancel</Button>
       </div>
     );
   }
