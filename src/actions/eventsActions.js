@@ -23,7 +23,10 @@ export function getEvent(id) {
       .then(response => (
         dispatch({ type: 'FETCHED_EVENT', payload: response.data[0] })
       ))
-      .catch(err => console.log(`Error getting event ${id}: `, err));
+      .catch((err) => {
+        console.log(`Error getting event ${id}: `, err);
+        dispatch({ type: 'EVENT_ERROR' });
+      });
   };
 }
 
@@ -37,7 +40,10 @@ export function submitForm(inputs) {
         dispatch({ type: 'SUBMIT_END', payload: newEvent });
         browserHistory.push(`/events/${newEvent.id}`);
       })
-      .catch(err => console.log('Error submitting: ', err));
+      .catch((err) => {
+        console.log('Error submitting: ', err);
+        dispatch({ type: 'EVENT_ERROR' });
+      });
   };
 }
 
@@ -56,7 +62,10 @@ export function submitEdit(values, id) {
         const updatedEvent = JSON.parse(response.config.data);
         dispatch({ type: 'EDIT_COMPLETE', payload: updatedEvent });
       })
-      .catch(err => console.log(`Error editing event ${id}: `, err));
+      .catch((err) => {
+        console.log(`Error editing event ${id}: `, err);
+        dispatch({ type: 'EVENT_ERROR' });
+      });
   };
 }
 
@@ -68,10 +77,16 @@ export function cancelEdit() {
 
 export function deleteEvent(id) {
   return (dispatch) => {
+    dispatch({ type: 'DELETE_START' });
     axios.delete(`http://localhost:8081/events/${id}`)
-      .then(response => (
-        browserHistory.push('/events')
-      ))
-      .catch(err => console.log(`Error deleting event ${id}: `, err));
+      .then((response) => {
+        console.log('delete event', response);
+        browserHistory.push('/events');
+        dispatch({ type: 'DELETE_COMPLETE' });
+      })
+    .catch((err) => {
+      console.log(`Error deleting event ${id}: `, err);
+      dispatch({ type: 'EVENT_ERROR' });
+    });
   };
 }
