@@ -29,7 +29,14 @@ class EventsList extends Component {
 
 EventsList.propTypes = {
   getEvents: React.PropTypes.func.isRequired,
-  events: React.PropTypes.array,
+  events: React.PropTypes.arrayOf(React.PropTypes.shape({
+    title: React.PropTypes.string,
+    description: React.PropTypes.string,
+    category: React.PropTypes.string,
+    start_date: React.PropTypes.string,
+    end_date: React.PropTypes.string,
+    feature_flag: React.PropTypes.string,
+  })).isRequired,
 };
 
 const mapStateToProps = store => ({

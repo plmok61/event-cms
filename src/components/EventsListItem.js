@@ -18,7 +18,14 @@ const EventsListItem = ({ event }) => (
 );
 
 EventsListItem.propTypes = {
-  event: React.PropTypes.object.isRequired,
+  event: React.PropTypes.shape({
+    title: React.PropTypes.string,
+    description: React.PropTypes.string,
+    category: React.PropTypes.string,
+    start_date: React.PropTypes.string,
+    end_date: React.PropTypes.string,
+    feature_flag: React.PropTypes.string,
+  }).isRequired,
 };
 
 export default EventsListItem;
